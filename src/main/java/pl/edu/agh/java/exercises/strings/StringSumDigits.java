@@ -1,5 +1,8 @@
 package pl.edu.agh.java.exercises.strings;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Given a string, return the sum of the digits 0-9 that appear in the string, ignoring all other characters. Return 0
  * if there are no digits in the string.
@@ -16,6 +19,17 @@ package pl.edu.agh.java.exercises.strings;
  */
 public class StringSumDigits {
     public int sumDigits(String str) {
-        throw new UnsupportedOperationException();
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < 9; i++) {
+            list.add(String.valueOf(i));
+        }
+        int sum = 0;
+        for (int i = 0; i < str.length(); i++) {
+            String charAsStringInCurrentPlace = String.valueOf(str.charAt(i));
+            if(list.contains(charAsStringInCurrentPlace)) {
+                sum += Integer.parseInt(charAsStringInCurrentPlace);
+            }
+        }
+        return sum;
     }
 }
