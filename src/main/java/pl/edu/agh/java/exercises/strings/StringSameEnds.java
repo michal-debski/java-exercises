@@ -13,9 +13,7 @@ public class StringSameEnds {
     public String sameEnds(String string) {
 
         int length = string.length();
-        if (length == 0) {
-            return "";
-        } else if (length == 1) {
+        if (length == 0 || length == 1) {
             return "";
         } else if (length == 2 && string.charAt(0) == string.charAt(1)) {
             return string.substring(1);
@@ -24,6 +22,8 @@ public class StringSameEnds {
                 for (int j = length - 1; j > 0; j--) {
                     if (string.charAt(i) == string.charAt(j)) {
                         return String.valueOf(string.charAt(i));
+                    } else if (string.charAt(i) == string.charAt(j) && string.charAt(i + 1) == string.charAt(j+1)) {
+                        return String.valueOf(string.charAt(i)+string.charAt(j));
                     }
                 }
             }
